@@ -45,7 +45,7 @@ for i in excel_row:
     place.send_keys(place_value)
 
 
-    agoda_hid_value = i[4]
+    agoda_hid_value = int(i[4])
     print('Hotel ID : ',agoda_hid_value)
     agoda_hid = driver.find_element(By.XPATH,'/html/body/form/input[2]')
     agoda_hid.send_keys(agoda_hid_value)
@@ -54,31 +54,31 @@ for i in excel_row:
     url_book_value = i[5]
     print('url book : ',url_book_value)
     url_book = driver.find_element(By.XPATH,'/html/body/form/input[3]')
-    url_book.send_keys('aa')
+    url_book.send_keys(url_book_value)
 
 
 
 
-    pic1_value = i[6]
-    print('pic1 value : ',i[6])
+    pic1_value = str(i[6])
+    print('pic1 value : ',pic1_value)
     pic1 = driver.find_element(By.XPATH,'//*[@id="user_input1"]')
     pic1.send_keys(pic1_value)
 
 
-    pic2_value = i[7]
-    print('pic2 value : ',i[7])
+    pic2_value = str(i[7])
+    print('pic2 value : ',pic2_value)
     pic2 = driver.find_element(By.XPATH,'//*[@id="user_input2"]')
     pic2.send_keys(pic2_value)
 
 
-    pic3_value = i[8]
-    print('pic3 value : ',i[8])
+    pic3_value = str(i[8])
+    print('pic3 value : ',pic3_value)
     pic3 = driver.find_element(By.XPATH,'//*[@id="user_input3"]')
     pic3.send_keys(pic3_value)
 
 
-    pic4_value = i[9]
-    print('pic4 value : ',i[9])
+    pic4_value = str(i[9])
+    print('pic4 value : ',pic4_value)
     pic4 = driver.find_element(By.XPATH,'//*[@id="user_input4"]')
     pic4.send_keys(pic4_value)
 
@@ -248,11 +248,11 @@ for i in excel_row:
     elif select_value == 6.0:
         drop.select_by_index("42")   
 
-    start_price_value = i[13]
+    start_price_value = '{:,}'.format(int(i[13]))
     start_price = driver.find_element(By.XPATH,'/html/body/form/input[9]')
     start_price.send_keys(start_price_value)
 
-    end_price_value = i[14]
+    end_price_value = '{:,}'.format(int(i[14]))
     end_price = driver.find_element(By.XPATH,'/html/body/form/input[10]')
     end_price.send_keys(end_price_value)
 
@@ -285,9 +285,11 @@ for i in excel_row:
 
     check_btn = driver.find_element(By.XPATH,'/html/body/input[2]')
     check_btn.click()
-    time.sleep(10)
+    
+    input("Please enter to continue : ")
 
 
+    
     gen_code = driver.find_element(By.XPATH,'/html/body/form/input[14]')
     gen_code.click()
 
