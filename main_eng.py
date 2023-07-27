@@ -15,7 +15,7 @@ import time
 
 url = "https://www.chiangmaiexpert.com/code/hotel2-en.php"
 driver = webdriver.Chrome(service= Service(ChromeDriverManager().install()))
-
+driver.maximize_window()
 
 df = pd.read_excel('eng.xlsx')
 
@@ -35,7 +35,7 @@ driver.get(url)
 row_num = 1
 for i in excel_row: 
     
-    filename = "{}eng.txt".format(row_num)
+    filename = "{}.txt".format(row_num)
     print(filename)
 
     place_value = i[3]
@@ -299,10 +299,12 @@ for i in excel_row:
 
 
 
+
     with open(filename,'w',encoding="utf-8") as f: 
         value_text = pyperclip.paste()
         print(value_text)
-        f.write(value_text)
+        lis_write = value_text.split("\n")
+        f.writelines(lis_write)
 
     reset.click()
     row_num = row_num + 1

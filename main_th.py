@@ -16,7 +16,7 @@ import time
 #url = 'https://www.mottoauction.com/Auction/Code/X1FBK019'
 url = "https://www.chiangmaiexpert.com/code/hotel2-th-ota.php"
 driver = webdriver.Chrome(service= Service(ChromeDriverManager().install()))
-
+driver.maximize_window()
 
 df = pd.read_excel('th.xlsx')
 
@@ -303,7 +303,8 @@ for i in excel_row:
     with open(filename,'w',encoding="utf-8") as f: 
         value_text = pyperclip.paste()
         print(value_text)
-        f.write(value_text)
+        lis_write = value_text.split("\n")
+        f.writelines(lis_write)
 
     reset.click()
     row_num = row_num + 1
