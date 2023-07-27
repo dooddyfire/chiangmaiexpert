@@ -292,7 +292,7 @@ for i in excel_row:
     gen_code = driver.find_element(By.XPATH,'/html/body/form/input[14]')
     gen_code.click()
 
-    copy_code = driver.find_element(By.XPATH,'//*[@id="copy"]')
+    copy_code = driver.find_element(By.ID,'copy')
     copy_code.click()
 
     reset = driver.find_element(By.XPATH,'/html/body/input[1]')
